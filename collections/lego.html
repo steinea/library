@@ -1,0 +1,54 @@
+---
+layout: default
+title: Lego
+permalink: /lego/
+---
+
+<!--Table Start-->
+<table id="sortable" class="display" style="width: 100%">
+  <thead>
+    <tr>
+      <th>Set</th>
+      <th>Series</th>
+      <th>Item</th>
+      <th>Pieces</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+
+  <tbody>
+		{% assign sorted = site.items | sort: 'date' | reverse %}
+			{% for item in sorted %}
+				{% if item.category contains "lego" %}
+				    <tr>
+				      <td><a href="{{ item.url }}" title="{{ item.title }}">{{ item.title }}</a></td>
+				      <td>{{ item.series }}</td>
+							<td><a href="{{ item.link }}"  target="_blank" rel="noopener noreferrer">{{ item.item }}</a></td>
+							<td>{{ item.pieces }}</td>
+							<td>{{ item.subcategory }}</td>
+				    </tr>
+				{% endif %}
+    	{% endfor %}
+  </tbody>
+
+  <tfoot>
+    <tr>
+			<th>Set</th>
+      <th>Series</th>
+      <th>Item</th>
+      <th>Pieces</th>
+      <th>Status</th>
+    </tr>
+  </tfoot>
+</table>
+
+<!-- Javascript for DataTable -->
+<script>
+	$(document).ready(function () {
+		$("#sortable").DataTable({
+			order: [
+				[0, "asc"]
+			],
+		});
+	});
+</script>
