@@ -1,0 +1,56 @@
+---
+layout: default
+title: Discs
+permalink: /discs/
+---
+
+<!--Table Start-->
+<table id="sortable" class="display" style="width: 100%">
+  <thead>
+    <tr>
+      <th>Game</th>
+      <th>Edition</th>
+      <th>Platform</th>
+      <th>Format</th>
+      <th>Type</th>
+      <th>UPC</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for disc in site.data.discs %}
+    {% if disc.Type contains "game" %}
+    <tr>
+		  <td>{{ disc.Title }}</td>
+      <td>{{ disc.Edition }}</td>
+      <td>{{ disc.Platform }}</td>
+      <td>{{ disc.Format }}</td>
+      <td>{{ disc.Type }}</td>
+      <td><a href="https://www.barcodelookup.com/{{ disc.UPC }}" title="{{ disc.Title }}"  target="_blank" rel="noopener noreferrer">{{ disc.UPC }}</td>
+		</tr>
+    {% endif %}
+  	{% endfor %}
+  </tbody>
+
+  <tfoot>
+    <tr>
+      <th>Game</th>
+      <th>Edition</th>
+      <th>Platform</th>
+      <th>Format</th>
+      <th>Type</th>
+      <th>UPC</th>
+    </tr>
+  </tfoot>
+</table>
+
+<!-- Javascript for DataTable -->
+<script>
+	$(document).ready(function () {
+		$("#sortable").DataTable({
+			order: [
+				[0, "asc"]
+			],
+		});
+	});
+</script>
