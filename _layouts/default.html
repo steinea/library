@@ -7,10 +7,6 @@
 
     <title>{{ page.title }}</title>
 
-    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/bulma.css">
-    <link rel="shortcut icon" type="image/png" href="/images/favicon.png">
-    <link rel="alternate" type="application/rss+xml" href="{{ site.baseurl }}/feed.xml" title="Eric Stein RSS">
-
     <!-- DataTables styles addition to base Bulma CSS -->
     <!-- From https://github.com/leabs/jekyll-product-table -->
     <style>
@@ -596,6 +592,10 @@
       }
     </style>
 
+    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/bulma.css">
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.png">
+    <link rel="alternate" type="application/rss+xml" href="{{ site.baseurl }}/feed.xml" title="Eric Stein RSS">
+
     <!-- DataTables scripts -->
     <!-- From https://github.com/leabs/jekyll-product-table -->
     <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
@@ -609,8 +609,8 @@
 
       <!-- Header -->
       <section class="section" id="header">
-        <h1 class="title is-1">Title</h1>
-        <h2 class="subtitle is-3">Subtitle</h2>
+        <h1 class="title is-1">{{ page.title }}</h1>
+        <h2 class="subtitle is-3">{{ page.subtitle }}</h2>
       </section>
 
       <!-- Page Content -->
@@ -622,17 +622,6 @@
       <section class="section footer" id="footer">
         <footer></footer>
       </section>
-
-      <!-- Javascript for DataTable -->
-      <script>
-        $(document).ready(function () {
-          $("#example").DataTable({
-            order: [
-              [0, "desc"]
-            ],
-          });
-        });
-      </script>
 
     </div>
     <!-- End Site Container -->
