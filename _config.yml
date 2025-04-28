@@ -19,6 +19,9 @@ collections_dir: collections
 collections:
   posts:
     permalink: /:year/:month/:day/:title/
+  items:
+    output: true
+    permalink: /:title/
 
 # Exclude from processing.
 # The following items will not be processed, by default.
