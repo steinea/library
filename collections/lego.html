@@ -13,22 +13,23 @@ permalink: /lego/
       <th>Item</th>
       <th>Pieces</th>
       <th>Status</th>
+      <th>Price</th>
     </tr>
   </thead>
 
   <tbody>
-		{% assign sorted = site.items | sort: 'date' | reverse %}
-			{% for item in sorted %}
-				{% if item.category contains "lego" %}
-				    <tr>
-				      <td><a href="{{ item.url }}" title="{{ item.title }}">{{ item.title }}</a></td>
-				      <td>{{ item.series }}</td>
-							<td><a href="{{ item.link }}"  target="_blank" rel="noopener noreferrer">{{ item.item }}</a></td>
-							<td>{{ item.pieces }}</td>
-							<td>{{ item.subcategory }}</td>
-				    </tr>
-				{% endif %}
-    	{% endfor %}
+    {% for lego in site.data.lego %}
+    <tr>
+      <!-- First <td> 'guesses' at url for item page by taking name from CSV and slugifying it -->
+      <!-- If set name in csv file is identical to file name of item, url will resolve -->
+		  <td><a href="{{ site.baseurl }}/{{ lego.Set | slugify: "latin"}}">{{ lego.Set }}</a></td>
+		  <td>{{ lego.Series }}</td>
+		  <td><a href="{{ lego.URL }}" title="{{ lego.Set }}">{{ lego.Item }}</a></td>
+		  <td>{{ lego.Pieces }}</td>
+		  <td>{{ lego.Status }}</td>
+      <td>{{ lego.Price }}</td>
+		</tr>
+  	{% endfor %}
   </tbody>
 
   <tfoot>
@@ -38,6 +39,7 @@ permalink: /lego/
       <th>Item</th>
       <th>Pieces</th>
       <th>Status</th>
+      <th>Price</th>
     </tr>
   </tfoot>
 </table>
