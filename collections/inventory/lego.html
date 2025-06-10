@@ -22,7 +22,7 @@ permalink: /lego/
     <tr>
       <!-- First <td> 'guesses' at url for item page by taking name from CSV and slugifying it -->
       <!-- If set name in csv file is identical to file name of item, url will resolve -->
-		  <td><a href="{{ site.baseurl }}/{{ lego.Set | slugify: "latin"}}">{{ lego.Set }}</a></td>
+		  <td><a href="{{ site.baseurl }}/{{ lego.Set | slugify: 'latin'}}">{{ lego.Set }}</a></td>
 		  <td>{{ lego.Series }}</td>
 		  <td><a href="{{ lego.URL }}" title="{{ lego.Set }}" target="_blank" rel="noopener noreferrer">{{ lego.Item }}</a></td>
 		  <td>{{ lego.Pieces }}</td>

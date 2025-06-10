@@ -21,7 +21,7 @@ permalink: /discs/
     {% for disc in site.data.discs %}
     {% if disc.Type contains "game" %}
     <tr>
-		  <td>{{ disc.Title }}</td>
+		  <td><a href="{{ site.baseurl }}/{{ disc.Developer | slugify: 'latin'}}-{{ disc.Title | slugify: 'latin'}}">{{ disc.Title }}</a></td>
       <td>{{ disc.Edition }}</td>
       <td>{{ disc.Platform }}</td>
       <td>{{ disc.Format }}</td>
